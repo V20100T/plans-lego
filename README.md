@@ -31,6 +31,7 @@ plans/
   masque-sunraku/           model.js (calques de la tête) + index.html
   mini-13-pieces/           3 mini-modèles avec les pièces de « Mes pieces/ »
   mini-vrac/                3 mini-modèles avec la 2ᵉ photo de « Mes pieces/ »
+  vaisseau-humain/          plan reconstitué du vaisseau fait main (photos dans « Construction humaine - … »)
 Sherman S/, Kingsong S18/, Masque Sunraku - …/  photos de référence
 ```
 

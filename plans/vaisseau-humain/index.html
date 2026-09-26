@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vaisseau spatial fait main</title>
+<link rel="stylesheet" href="../../lib/css/plan.css">
+<script src="../../lib/vendor/three.js"></script>
+<script src="../../lib/vendor/OrbitControls.js"></script>
+<script src="../../lib/lego/core.js"></script>
+<script src="../../lib/lego/geometry.js"></script>
+<script src="../../lib/lego/engine.js"></script>
+<script src="../../lib/lego/page.js"></script>
+<script src="model.js"></script>
+</head>
+<body>
+<script>
+const { mountPlan, vaisseauHumain } = LEGO;
+const img = f => '../../Construction%20humaine%20-%20Vaisseau%20spacial/' + encodeURIComponent(f);
+
+mountPlan({
+  title: 'Vaisseau spatial <span>fait main</span>',
+  subtitle: 'Le plan du vaisseau construit à la main avec les pièces en vrac : nez en fourche, grande aile en T à l\'arrière, cockpit doré et réacteur rond.',
+  factory: vaisseauHumain,
+  view: {az:-40, el:25},
+  photos: [
+    {src: img('WhatsApp Image 2026-09-26 at 15.04.00 (2).jpeg'), alt:'Profil gauche'},
+    {src: img('WhatsApp Image 2026-09-26 at 15.04.00 (4).jpeg'), alt:'Profil droit'},
+    {src: img('WhatsApp Image 2026-09-26 at 15.04.00 (1).jpeg'), alt:'Face avant'},
+    {src: img('WhatsApp Image 2026-09-26 at 15.04.00 (3).jpeg'), alt:'Arrière'},
+    {src: img('WhatsApp Image 2026-09-26 at 15.04.00 (5).jpeg'), alt:'Dessus'},
+    {src: img('WhatsApp Image 2026-09-26 at 15.04.00.jpeg'), alt:'Dessous'},
+    {src: img('WhatsApp Image 2026-09-26 at 15.04.01.jpeg'), alt:'Les pièces'},
+  ],
+  sections: [
+    {title:'À propos de ce plan', html: () => `
+      <div class="card">
+        <p style="margin:0">Le plan est <b>reconstitué d'après les photos</b> : la silhouette, les couleurs et les pièces principales sont les mêmes que le modèle d'origine. Certaines couches cachées à l'intérieur ne se voient pas sur les photos, je les ai donc choisies pour que tout tienne.</p>
+        <div class="tip">Les petites pièces vertes du dessus (plaque 2x2 spéciale, pièce en arche, briques 1x1) ne sont pas dans le plan : ajoute-les en déco sur le cockpit, comme sur les photos.</div>
+      </div>`},
+  ],
+  stepsIntro: 'Les pièces à ajouter sont entourées d\'<b class="hl">orange</b> (en <b style="color:#0a84ff">bleu</b> sur les pièces rouges, jaunes ou dorées). L\'avant est le nez en fourche.',
+});
+</script>
+</body>
+</html>
