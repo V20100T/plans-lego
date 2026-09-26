@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mini-modèles 13 pièces</title>
+<link rel="stylesheet" href="../../lib/css/plan.css">
+<script src="../../lib/vendor/three.js"></script>
+<script src="../../lib/vendor/OrbitControls.js"></script>
+<script src="../../lib/lego/core.js"></script>
+<script src="../../lib/lego/geometry.js"></script>
+<script src="../../lib/lego/engine.js"></script>
+<script src="../../lib/lego/page.js"></script>
+<script src="model.js"></script>
+</head>
+<body>
+<script>
+const { mountPlan, miniModels, MINI_CHOICES } = LEGO;
+
+mountPlan({
+  title: 'Mini-modèles <span>13 pièces</span>',
+  subtitle: 'Trois petits modèles à faire uniquement avec les 13 pièces bleues de ta photo : une mini gyroroue, un vaisseau spatial et un robot.',
+  intro: 'Choisis le modèle plus bas, dans « Tes choix ». Tourne-le à la souris.',
+  factory: miniModels,
+  view: {az:-40, el:22},
+  options: [
+    {key:'modele', label:'Modèle :', default:'euc', choices: MINI_CHOICES,
+     help:'Tu ne peux en monter qu\'un à la fois avec tes pièces : démonte, puis passe au suivant.'},
+  ],
+  photos: [ {src:'../../Mes%20pieces/13-pieces-bleues.jpg', alt:'Tes 13 pièces'} ],
+  sections: [
+    {title:'Tes pièces', html: () => `
+      <div class="card">
+        <table>
+          <tr><th>Sur la photo</th><th>Nom dans le plan</th></tr>
+          <tr><td>Les 2 pièces bleu foncé en L (2 tenons d'un côté, 4 de l'autre)</td><td><b>Équerre 1x2 - 2x2</b> : ses 4 tenons regardent sur le côté</td></tr>
+          <tr><td>Les 2 pièces pointues</td><td><b>Pente 1x2 biseautée</b> gauche et droite</td></tr>
+          <tr><td>Les 2 longues pièces bombées (bleu et bleu foncé)</td><td><b>Pente courbe 1x4</b></td></tr>
+          <tr><td>La pièce ronde avec la croix</td><td><b>Brique ronde 2x2 à trou d'axe</b></td></tr>
+          <tr><td>La petite pièce transparente</td><td><b>Tuile 1x1</b> transparente</td></tr>
+        </table>
+        <div class="tip">J'ai identifié les pièces d'après la photo. Si une pièce n'est pas exactement celle-là (surtout les équerres), dis-le-moi et j'adapte le plan.</div>
+      </div>`},
+  ],
+  stepsIntro: 'Les pièces à ajouter sont entourées d\'<b class="hl">orange</b> (en <b style="color:#0a84ff">bleu</b> sur les pièces jaunes ou rouges).',
+});
+</script>
+</body>
+</html>

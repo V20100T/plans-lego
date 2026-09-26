@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mini-modèles pièces en vrac</title>
+<link rel="stylesheet" href="../../lib/css/plan.css">
+<script src="../../lib/vendor/three.js"></script>
+<script src="../../lib/vendor/OrbitControls.js"></script>
+<script src="../../lib/lego/core.js"></script>
+<script src="../../lib/lego/geometry.js"></script>
+<script src="../../lib/lego/engine.js"></script>
+<script src="../../lib/lego/page.js"></script>
+<script src="model.js"></script>
+</head>
+<body>
+<script>
+const { mountPlan, miniVrac, VRAC_CHOICES } = LEGO;
+
+mountPlan({
+  title: 'Mini-modèles <span>pièces en vrac</span>',
+  subtitle: 'Un avion, une fusée sur son pas de tir et un bateau, faits uniquement avec les pièces de ta 2ᵉ photo.',
+  intro: 'Choisis le modèle plus bas, dans « Tes choix ». Tourne-le à la souris.',
+  factory: miniVrac,
+  view: {az:-40, el:25},
+  options: [
+    {key:'modele', label:'Modèle :', default:'avion', choices: VRAC_CHOICES,
+     help:'Les modèles partagent certaines pièces : monte-les un par un.'},
+  ],
+  photos: [ {src:'../../Mes%20pieces/pieces-en-vrac.jpg', alt:'Tes pièces'} ],
+  sections: [
+    {title:'Tes pièces', html: () => `
+      <div class="card">
+        <p style="margin-top:0">Les plans utilisent surtout les pièces faciles à reconnaître sur la photo : les <b>plaques 2x6</b> (4 noires, 1 rouge, 1 verte, 1 jaune), les <b>plaques 2x4</b> (or, noire, gris-bleu, jaune, blanche), les <b>briques 1x2</b> (bleu moyen et rouge), les <b>pentes courbes 1x2</b> (violettes, bleu foncé, vert sable), les plaques marron 1x4, la brique ronde, les pentes biseautées et les tuiles.</p>
+        <div class="tip">Je n'ai pas utilisé les pièces spéciales que je ne reconnais pas avec certitude sur la photo (la grande pièce bleue à trous, la pièce verte en arche, les pièces noires à tenons sur le côté, la pièce dorée à 2 tenons…). Garde-les pour décorer : ailerons, antennes, hélice…</div>
+      </div>`},
+  ],
+  stepsIntro: 'Les pièces à ajouter sont entourées d\'<b class="hl">orange</b> (en <b style="color:#0a84ff">bleu</b> sur les pièces rouges, jaunes, or ou beiges).',
+});
+</script>
+</body>
+</html>
